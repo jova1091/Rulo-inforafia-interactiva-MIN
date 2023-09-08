@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Infografía Signos y Síntomas</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="m-0 p-0">
+    <div class="row align-self-start">
+        <div class="col-12 ps-5 pt-5">
+            <img src="img/icono.png" class="logo-2" alt="">
+        </div>
+    </div>
+    <main class=" m-0 p-5">
+        <div class="container-fluid row g-0 p-0">
+            <div class="col-sm-12 col-md-4 offset-md-1 p-5 position-relative">
+                <img class="img-fluid" src="img/introFull.png" alt="introim">
+            </div>
+            <div class="col-sm-12 col-md-6 p-5">
+                <p>
+                    En el formulario de entrevista vital de defunciones se exploran acerca de 40 signos y síntomas
+                    diferentes.
+                    Algunos de ellos se preguntan en todos los casos, sin importar la edad, mientras que otros solo
+                    se
+                    indagan
+                    en edades específicas. Dependiendo del módulo habilitado según la edad y sexo del fallecido, el
+                    certificador
+                    extramural realizará diferentes entrevistas según la situación narrada por cada familiar o
+                    cuidador.
+                </p>
+                <p>Cada entrevista es única y corresponde a la historia de cada caso que estará bajo la gestión del
+                    certificador. Existen dos tipos de formularios utilizados para este propósito: el instrumento de la
+                    Organización Mundial de la Salud en sus versiones 2016-2022 y el instrumento Smart-VA. En Colombia
+                    se han
+                    adoptado ambos instrumentos, por lo que este curso está diseñado para que los participantes
+                    adquieran los
+                    conocimientos y habilidades necesarios para utilizar cualquiera de ellos.</p>
+                <p>El gráfico 1 muestra todos los signos y síntomas explorados en el formulario de entrevista vital de
+                    defunciones. Sin
+                    embargo, este recurso le permitirá profundizar en el conocimiento de los signos y síntomas más
+                    frecuentes en la
+                    población, o aquellos que, debido a sus características, pueden generar confusión en su
+                    reconocimiento y posterior
+                    registro en el formulario de entrevista vital.
+                </p>
+                <button type="button" class="btn btn-dark rounded-0 me-2" data-bs-toggle="modal"
+                    data-bs-target="#graficoModal"> Gráfico 1 </button>
+                <a href="menu.html" target="_self" class="btn btn-dark rounded-0 me-2">Siguiente</a>
+            </div>
+        </div>
+    </main>
+
+    <div id="graficoModal" class="modal blue" tabindex="-1" aria-labelledby="graficoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 pt-3 px-5">
+                            <h4 class="blue mb-5">Gráfico 1. Signos y síntomas explorados en la entrevista vital
+                                de defunción</h4>
+                            <div class="card blue rounded-0 p-4 text-white">
+                                <h3>IMPORTANTE</h3>
+                                <hr>
+                                <p class="m-0">Un fallecido en el proceso de enfermedad que lo condujo a la muerte no
+                                    pudo presentar
+                                    todos los signos y síntomas
+                                    listados en el formulario de entrevista vital de defunción, por otro lado, es muy
+                                    raro que una persona no haya
+                                    presentado.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-8 position-relative">
+                            <div id="zoom" class="position-relative">
+                                <img src="img/grafico.jpg" id="scene"
+                                    class="img-fluid position-absolute top-0 bottom-0 start-0 end-0" alt="">
+                                <div class="buttons">
+                                    <button type="button" class="zoom zoom-in">
+                                        <img src="img/zoom-in.png" class="img-fluid" alt="">
+                                    </button>
+                                    <button type="button" class="zoom zoom-out">
+                                        <img src="img/zoom-out.png" class="img-fluid" alt="">
+                                    </button>
+                                    <button type="button" class="zoom zoom-center">
+                                        <img src="img/zoom-center.png" class="img-fluid" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
+    <script>
+        const element = document.querySelector( '#scene' );
+        const zoomCenter = document.querySelector( '.zoom-center' );
+        const zoomIn = document.querySelector( '.zoom-in' );
+        const zoomOut = document.querySelector( '.zoom-out' );
+        let instance = panzoom( element, {
+            maxZoom: 3,
+            minZoom: 1,
+            zoomDoubleClickSpeed: 1,
+        } );
+        zoomCenter.addEventListener( "click", function () {
+            instance.smoothZoom( 0, 0, 0.5 );
+            instance.smoothMoveTo( 0.5, 0.5 );
+        } );
+        zoomIn.addEventListener( "click", function () {
+            instance.smoothZoom( 0, 0, 1.5 );
+            instance.smoothMoveTo( 0.5, 0.5 );
+        } );
+        zoomOut.addEventListener( "click", function () {
+            instance.smoothZoom( 0, 0, 0.5 );
+            instance.smoothMoveTo( 0.5, 0.5 );
+        } );
+    </script>
+</body>
+
+</html>
